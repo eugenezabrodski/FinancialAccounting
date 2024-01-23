@@ -236,6 +236,7 @@
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yK7-IP-TT5">
                                                     <rect key="frame" x="0.0" y="2" width="40" height="40"/>
+                                                    <color key="tintColor" red="0.99755531549999998" green="0.38895362090000002" blue="0.36271550050000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -319,6 +320,9 @@
                                         <rect key="frame" x="7.9999999999999929" y="327" width="114.33333333333331" height="34.333333333333314"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Set the limit"/>
+                                        <connections>
+                                            <action selector="setTheLimit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ZG-bz-EcT"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2l-qv-Rab">
                                         <rect key="frame" x="8" y="172.66666666666669" width="12.333333333333336" height="24"/>
@@ -339,12 +343,12 @@
                                     <constraint firstItem="3HW-2j-46J" firstAttribute="top" secondItem="pUv-mR-uyn" secondAttribute="bottom" constant="8" symbolic="YES" id="FKx-Wk-5e8"/>
                                     <constraint firstItem="Orr-X2-tpX" firstAttribute="leading" secondItem="skK-vC-7zi" secondAttribute="leading" constant="8" id="FW1-5T-F73"/>
                                     <constraint firstItem="eQI-Oj-6bm" firstAttribute="leading" secondItem="skK-vC-7zi" secondAttribute="leading" constant="8" id="N6m-iY-3Nw"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="b2l-qv-Rab" secondAttribute="trailing" symbolic="YES" id="OJS-nZ-4wg"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="b2l-qv-Rab" secondAttribute="trailing" constant="20" symbolic="YES" id="OJS-nZ-4wg"/>
                                     <constraint firstItem="b2l-qv-Rab" firstAttribute="leading" secondItem="skK-vC-7zi" secondAttribute="leading" constant="8" id="S8L-KM-a5V"/>
                                     <constraint firstItem="pUv-mR-uyn" firstAttribute="leading" secondItem="skK-vC-7zi" secondAttribute="leading" constant="8" id="SgS-m3-Fet"/>
                                     <constraint firstItem="TBd-VR-eQo" firstAttribute="leading" secondItem="skK-vC-7zi" secondAttribute="leading" constant="8" id="T2o-Ck-R2S"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Orr-X2-tpX" secondAttribute="trailing" constant="20" symbolic="YES" id="TLw-i1-60a"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3HW-2j-46J" secondAttribute="trailing" symbolic="YES" id="bXA-yV-17H"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3HW-2j-46J" secondAttribute="trailing" constant="20" symbolic="YES" id="bXA-yV-17H"/>
                                     <constraint firstItem="uJB-dI-j7l" firstAttribute="leading" secondItem="skK-vC-7zi" secondAttribute="leading" constant="8" id="fDp-o9-a35"/>
                                     <constraint firstItem="TBd-VR-eQo" firstAttribute="top" secondItem="skK-vC-7zi" secondAttribute="top" constant="42" id="iV5-dK-RZS"/>
                                     <constraint firstItem="Orr-X2-tpX" firstAttribute="top" secondItem="b2l-qv-Rab" secondAttribute="bottom" constant="78" id="ibv-PS-an0"/>
@@ -569,7 +573,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="F_ckTheMoney" id="EYn-zt-ms2"/>
                     <connections>
+                        <outlet property="allSpendings" destination="pUv-mR-uyn" id="Rby-Jh-foj"/>
                         <outlet property="displayLabel" destination="vuJ-dC-iYu" id="Gw9-RM-QRQ"/>
+                        <outlet property="howManyCanSpend" destination="uJB-dI-j7l" id="6sU-Kc-883"/>
+                        <outlet property="limitLabel" destination="cdY-pF-cZ8" id="x4H-kd-tik"/>
+                        <outlet property="spendByCheck" destination="b2l-qv-Rab" id="mlA-gc-UUm"/>
                         <outlet property="tableView" destination="eQg-03-pFp" id="Lt2-u4-TVd"/>
                         <outletCollection property="numberFromKeyboard" destination="aEs-2N-x1H" collectionClass="NSMutableArray" id="5kS-qc-MDK"/>
                         <outletCollection property="numberFromKeyboard" destination="bQe-zZ-Fk8" collectionClass="NSMutableArray" id="Ir5-Bm-BPN"/>
@@ -596,7 +604,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f8A-cb-MNw">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="3kx-Xf-mwC" kind="relationship" relationship="viewControllers" id="YJq-7B-KXy"/>
@@ -610,7 +618,9 @@
         <scene sceneID="LoP-gd-cdP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3kx-Xf-mwC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="cart.fill.badge.plus" catalog="system" selectedImage="cart.badge.minus" id="mWI-A5-D7K"/>
+                    <tabBarItem key="tabBarItem" title="" image="cart.fill.badge.plus" catalog="system" selectedImage="cart.badge.minus" id="mWI-A5-D7K">
+                        <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bsA-Wg-Ct2">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
